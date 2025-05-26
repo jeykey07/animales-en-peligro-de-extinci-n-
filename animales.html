@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú - Animales en Peligro de Extinción</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f7ea;
+            color: #333;
+        }
+        header {
+            background-color: #2e6b30;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            background-image: linear-gradient(to right, #2e6b30, #5fb663);
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        .category-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        .category-card:hover {
+            transform: translateY(-5px);
+        }
+        .category-image {
+            width: 100%;
+            height: 180px;
+            background-color: #e0efd6;
+            display: flex;
+            justify-content: center;
+            align-items: center;  
+        }
+        .category-image img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: cover;
+        }
+        .category-info {
+            padding: 20px;
+        }
+        h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+        h2 {
+            color: #2e6b30;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+        .intro {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #2e6b30;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 5px;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #1d4a1f;
+        }
+        .stat {
+            font-weight: bold;
+            color: #e63946;
+        }
+        footer {
+            background-color: #2e6b30;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 20px;
+        }
+        .back-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #2e6b30;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 14px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transition: background-color 0.3s ease;
+        }
+         
+        
+        .back-button:hover {
+            background-color: #0099cc;
+        }
+        .back-button:hover {
+            background-color: #1d4a1f;
+        }
+        @media (max-width: 768px) {
+            .menu-grid {
+                grid-template-columns: 1fr;
+            }
+            h1 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>ANIMALES EN PELIGRO DE EXTINCIÓN</h1>
+        <p>Descubre los ecosistemas amenazados y las especies que debemos proteger</p>
+    </header>
+
+    <div class="container">
+        <div class="intro">
+            <h2>Una Crisis de Biodiversidad</h2>
+            <p>Actualmente, más de <span class="stat">40,000 especies</span> están en peligro de extinción en todo el mundo. La pérdida de hábitat, el cambio climático, la contaminación y la sobreexplotación de recursos son las principales amenazas para la biodiversidad global.</p>
+            <p>Conoce las categorías de animales amenazados y descubre cómo puedes contribuir a su conservación.</p>
+        </div>
+
+        <div class="menu-grid">
+            <a href="animales acuaticos/info acuaticos/acuaticos info.html" class="category-card">
+                <div class="category-image">
+                    <img src="acuaticos.jpg" alt="Animales Acuáticos">
+                </div>
+                <div class="category-info">
+                    <h2>Animales Acuáticos</h2>
+                    <p>Especies marinas y de agua dulce que enfrentan graves amenazas debido a la contaminación, sobrepesca y cambio climático.</p>
+                    <p><span class="stat">1 de cada 3</span> especies de tiburones están en peligro de extinción.</p>
+                    <div class="btn">Explorar Más</div>
+                </div>
+            </a>
+
+            <a href="animales terrestres/info terrestres/info terrestres.html" class="category-card">
+                <div class="category-image">
+                    <img src="terrestres.jpg" alt="Mamíferos Terrestres">
+                </div>
+                <div class="category-info">
+                    <h2>Mamíferos Terrestres</h2>
+                    <p>Desde grandes felinos hasta pequeños roedores, muchos mamíferos están al borde de la extinción por la destrucción de sus hábitats.</p>
+                    <p>El <span class="stat">25%</span> de todas las especies de mamíferos está amenazado.</p>
+                    <div class="btn">Explorar Más</div>
+                </div>
+            </a>
+
+            <a href="aves/info aves/info aves.html" class="category-card">
+                <div class="category-image">
+                    <img src="aves.jpg" alt="Aves">
+                </div>
+                <div class="category-info">
+                    <h2>Aves</h2>
+                    <p>Las aves enfrentan múltiples amenazas, desde la deforestación hasta el comercio ilegal de especies exóticas.</p>
+                    <p>Más de <span class="stat">1,400 especies</span> de aves están en riesgo de extinción.</p>
+                    <div class="btn">Explorar Más</div>
+                </div>
+            </a>
+
+            
+        </div>
+        
+        <div class="intro">
+            <h2>¿Por qué es importante proteger la biodiversidad?</h2>
+            <p>La biodiversidad mantiene el equilibrio de los ecosistemas, proporciona recursos vitales y contribuye al desarrollo de nuevos medicamentos y tecnologías. Cada especie que se pierde debilita la red de vida de la que todos dependemos.</p>
+            <p>Explora las diferentes categorías para conocer más sobre las especies amenazadas y descubrir cómo puedes contribuir a su conservación.</p>
+            
+        </div>
+    </div>
+       
+    <footer>
+        <p>© 2025 Conservación de Especies en Peligro | Todos los derechos reservados</p>
+        <p>Esta página fue creada con el propósito de educar sobre especies amenazadas y fomentar su conservación</p>
+    </footer>
+        <!-- Reemplaza el botón existente con este -->
+   
+    <a href="../temas menu.html" class="back-button">Volver al Inicio</a>
+</body>
+</html>

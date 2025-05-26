@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mamíferos Terrestres en Peligro de Extinción</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f7ea;
+            color: #333;
+        }
+        header {
+            background-color: #2e6b30;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            background-image: linear-gradient(to right, #2e6b30, #5fb663);
+        }
+        
+        .intro {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+        h2 {
+            color: #2e6b30;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+        h3 {
+            color: #2e6b30;
+            margin-bottom: 10px;
+        }
+        .stat {
+            font-weight: bold;
+            color: #e63946;
+        }
+        
+        .animal-list {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        .animal-item {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            overflow: hidden;
+        }
+        .animal-image {
+            width: 300px;
+            flex-shrink: 0;
+            background-color: #e0efd6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .animal-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .animal-info {
+            padding: 20px;
+            flex-grow: 1;
+        }
+        .threat-level {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .critical {
+            background-color: #e63946;
+            color: white;
+        }
+        .endangered {
+            background-color: #f4a261;
+            color: white;
+        }
+        .causes-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 5px;
+        }
+        .cause-tag {
+            background-color: #e0efd6;
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 0.9em;
+        }
+        .actions {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        footer {
+            background-color: #2e6b30;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 20px;
+        }
+        
+        /* New styles for Back to Top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #2e6b30;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            z-index: 1000;
+
+        }
+
+                .back-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #2e6b30;
+           
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 14px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transition: background-color 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .back-button:hover {
+            background-color: #2e6b30;
+            
+        .back-to-top:hover {
+            background-color: #5fb663;
+        }
+        
+        @media (max-width: 768px) {
+            .animal-item {
+                flex-direction: column;
+            }
+            .animal-image {
+                width: 100%;
+                height: 300px;
+            }
+            h1 {
+                font-size: 32px;
+            }
+            .back-to-top {
+                bottom: 10px;
+                right: 10px;
+                padding: 8px 15px;
+            }
+        }
+
+        .scroll-top-button {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background-color: #2e6b30;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 14px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transition: background-color 0.3s ease;
+            z-index: 1000;
+        }
+
+        .scroll-top-button:hover {
+            background-color: #5fb663;
+        }
+    </style>
+</head>
+<body>
+    <header id="top">
+        <h1>MAMÍFEROS TERRESTRES EN PELIGRO</h1>
+        <p>Conoce las especies más amenazadas y las acciones para su conservación</p>
+    </header>
+
+    <div class="container">
+        <div class="intro">
+            <h2>Mamíferos en Crisis</h2>
+            <p>Los mamíferos terrestres están entre las especies más afectadas por la actividad humana. De las aproximadamente 6,400 especies de mamíferos que existen, más del <span class="stat">25%</span> está en riesgo de extinción. La pérdida de hábitat, la caza furtiva, los conflictos humanos y el cambio climático son las principales amenazas que enfrentan.</p>
+            <p>Estas especies emblemáticas cumplen roles cruciales en sus ecosistemas como dispersores de semillas, controladores de poblaciones y mantenedores del equilibrio ecológico. Su pérdida tiene efectos cascada que afectan a toda la biodiversidad.</p>
+        </div>
+
+        <div class="animal-list">
+            <div class="animal-item">
+                <div class="animal-image">
+                    <img src="sumatra.jpg" alt="Tigre de Sumatra">
+                </div>
+                <div class="animal-info">
+                    <h3>Tigre de Sumatra</h3>
+                    <div class="threat-level critical">En Peligro Crítico</div>
+                    <p>El más pequeño de los tigres existentes, con una población estimada de menos de <span class="stat">400 individuos</span> en estado salvaje. Endémico de la isla de Sumatra en Indonesia.</p>
+                    <p><strong>Principales amenazas:</strong></p>
+                    <div class="causes-list">
+                        <span class="cause-tag">Deforestación</span>
+                        <span class="cause-tag">Fragmentación de hábitat</span>
+                        <span class="cause-tag">Caza furtiva</span>
+                        <span class="cause-tag">Conflicto humano-animal</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="animal-item">
+                <div class="animal-image">
+                    <img src="java.jpg" alt="Rinoceronte de Java">
+                </div>
+                <div class="animal-info">
+                    <h3>Rinoceronte de Java</h3>
+                    <div class="threat-level critical">En Peligro Crítico</div>
+                    <p>Uno de los mamíferos más raros del mundo, con una población de apenas <span class="stat">74 individuos</span>. Solo se encuentra en el Parque Nacional Ujung Kulon en Indonesia.</p>
+                    <p><strong>Principales amenazas:</strong></p>
+                    <div class="causes-list">
+                        <span class="cause-tag">Pérdida de hábitat</span>
+                        <span class="cause-tag">Caza furtiva</span>
+                        <span class="cause-tag">Baja diversidad genética</span>
+                        <span class="cause-tag">Cambio climático</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="animal-item">
+                <div class="animal-image">
+                    <img src="gorila.jpg" alt="Gorila de Montaña">
+                </div>
+                <div class="animal-info">
+                    <h3>Gorila de Montaña</h3>
+                    <div class="threat-level endangered">En Peligro</div>
+                    <p>Gracias a intensos esfuerzos de conservación, su población ha aumentado a más de <span class="stat">1,000 individuos</span>, aunque sigue siendo vulnerable. Habita en las montañas volcánicas de Ruanda, Uganda y la República Democrática del Congo.</p>
+                    <p><strong>Principales amenazas:</strong></p>
+                    <div class="causes-list">
+                        <span class="cause-tag">Pérdida de hábitat</span>
+                        <span class="cause-tag">Conflictos armados</span>
+                        <span class="cause-tag">Enfermedades</span>
+                        <span class="cause-tag">Caza furtiva</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="animal-item">
+                <div class="animal-image">
+                    <img src="rojo.jpg" alt="Lobo Rojo">
+                </div>
+                <div class="animal-info">
+                    <h3>Lobo Rojo</h3>
+                    <div class="threat-level critical">En Peligro Crítico</div>
+                    <p>Uno de los cánidos más amenazados del mundo con menos de <span class="stat">20 individuos</span> en estado salvaje. Nativo del sureste de Estados Unidos.</p>
+                    <p><strong>Principales amenazas:</strong></p>
+                    <div class="causes-list">
+                        <span class="cause-tag">Hibridación con coyotes</span>
+                        <span class="cause-tag">Pérdida de hábitat</span>
+                        <span class="cause-tag">Persecución humana</span>
+                        <span class="cause-tag">Cacería ilegal</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="animal-item">
+                <div class="animal-image">
+                    <img src="lince.jpg" alt="Lince Ibérico">
+                </div>
+                <div class="animal-info">
+                    <h3>Lince Ibérico</h3>
+                    <div class="threat-level endangered">En Peligro</div>
+                    <p>El felino más amenazado de Europa, aunque su población ha aumentado de menos de 100 a más de <span class="stat">1,100 ejemplares</span> gracias a los programas de conservación. Habita en áreas de la Península Ibérica.</p>
+                    <p><strong>Principales amenazas:</strong></p>
+                    <div class="causes-list">
+                        <span class="cause-tag">Fragmentación de hábitat</span>
+                        <span class="cause-tag">Disminución de presas</span>
+                        <span class="cause-tag">Atropellos</span>
+                        <span class="cause-tag">Caza ilegal</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="animal-item">
+                <div class="animal-image">
+                    <img src="pangolin.jpg" alt="Pangolín">
+                </div>
+                <div class="animal-info">
+                    <h3>Pangolín</h3>
+                    <div class="threat-level critical">En Peligro Crítico</div>
+                    <p>El mamífero más traficado del mundo. Las ocho especies de pangolines están amenazadas, con poblaciones que han disminuido más del <span class="stat">80%</span> en las últimas décadas.</p>
+                    <p><strong>Principales amenazas:</strong></p>
+                    <div class="causes-list">
+                        <span class="cause-tag">Tráfico ilegal</span>
+                        <span class="cause-tag">Caza para consumo</span>
+                        <span class="cause-tag">Medicina tradicional</span>
+                        <span class="cause-tag">Destrucción de hábitat</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="actions">
+            <h2>¿Qué podemos hacer para protegerlos?</h2>
+            <p>La conservación de los mamíferos terrestres requiere una acción global y local. Algunas medidas importantes incluyen:</p>
+            
+            <h3>Acciones individuales</h3>
+            <ul>
+                <li>Apoyar a organizaciones dedicadas a la conservación de especies amenazadas</li>
+                <li>Evitar productos derivados de especies en peligro</li>
+                <li>Reducir nuestra huella ecológica a través de un consumo responsable</li>
+                <li>Educar a otros sobre la importancia de la conservación</li>
+            </ul>
+
+            <h3>Acciones colectivas</h3>
+            <ul>
+                <li>Creación y mantenimiento de áreas protegidas</li>
+                <li>Programas de reproducción en cautividad y reintroducción</li>
+                <li>Leyes más estrictas contra la caza furtiva y el tráfico de especies</li>
+                <li>Desarrollo de corredores ecológicos para conectar poblaciones aisladas</li>
+                <li>Investigación científica para mejorar las estrategias de conservación</li>
+            </ul>
+        </div>
+    </div>
+
+   <!-- Reemplaza el botón existente con este -->
+<a href="../../animales.html" class="back-button">Volver al Menú</a>
+
+    <a href="#top" class="scroll-top-button">↑ Subir</a>
+
+    <footer>
+        <p>© 2025 Conservación de Especies en Peligro | Todos los derechos reservados</p>
+        <p>Esta página fue creada con el propósito de educar sobre especies amenazadas y fomentar su conservación</p>
+    </footer>
+</body>
+</html>

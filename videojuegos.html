@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PLATAFORMAS</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #775e88; /* Color de fondo sólido para la página */
+            color: #333;
+        }
+        
+        header {
+            background-image: url("imgpp.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            text-align: center;
+            padding: 100px 0; /* Espacio para mostrar más de la imagen */
+            position: relative;
+        }
+        
+        header h1, header p {
+            position: relative;
+            z-index: 2;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Sombra para mejorar la legibilidad */
+        }
+        
+        /* Capa oscura para mejorar contraste con el texto */
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .animal-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            overflow: hidden;
+            display: flex;
+            text-align: left;
+        }
+        
+        .animal-info {
+            padding: 15px;
+            flex: 2;
+        }
+        
+        .animal-image {
+            width: 300px;
+            height: 250px;
+            background-color: #cce6ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .animal-image img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: cover;
+        }
+        
+        h2 {
+            color: #9882b9;
+            margin-top: 0;
+            border-bottom: 2px solid #221932;
+            padding-bottom: 10px;
+        }
+        
+        .titulo-principal {
+            font-size: 50px; 
+            text-align: center; 
+        }
+        
+        .category-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .status {
+            display: inline-block;
+            background-color: #7B337E;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        footer {
+            background-color: #7B337E;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 20px;
+        }
+        
+        .grid {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .conservacion-info {
+            background-color: #f0f8ff;
+            border-left: 5px solid #0066cc;
+            padding: 20px;
+        }
+        
+        .conservacion-info h2 {
+            border-bottom: none;
+        }
+        
+        .conservacion-info ul {
+            padding-left: 20px;
+        }
+        
+        /* Back to Top button */
+        #back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #775e88;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 24px;
+            cursor: pointer;
+            display: none;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: opacity 0.3s;
+        }
+        
+         
+        
+        #back-to-top:hover {
+            background-color: #005580;
+        }
+        
+        @media (max-width: 768px) {
+            .animal-card {
+                flex-direction: column;
+            }
+            .animal-image {
+                width: 100%;
+                height: 200px;
+            }
+            #back-to-top {
+                width: 40px;
+                height: 40px;
+                font-size: 20px;
+            }
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #2e6b30;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 5px;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #1d4a1f;
+        }
+
+        .back-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #775e88;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 14px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transition: background-color 0.3s ease;
+            z-index: 1000;
+        }
+
+        .back-button:hover {
+            background-color: #5a4668;
+        }
+    </style>
+</head>
+<body>
+    <button id="back-to-top" onclick="scrollToTop()" title="Ir arriba">↑</button>
+
+    <header>
+        <h1 class="titulo-principal">CREACION DE VIDEOJUEGOS</h1>
+        <p>Diferentes plataformas para crear diferentes tipos de videojuegos</p>
+    </header>
+
+    <div class="container">
+        <div class="grid">
+            <div class="animal-card">
+                <div class="animal-image">
+                    <img src="engine.jpg" alt="Godot Engine">
+                </div>
+                <div class="animal-info">
+                    <h2>Godot Engine</h2>
+                    <span class="status">Especialmente GDScript, aunque también es compatible con lenguaje C# y C++</span>
+                   <P>Godot Engine es un motor de videojuegos repleto de características, multiplataforma para crear juegos 2D y 3D por medio de una interfaz unificada. Provee un conjunto exhaustivo de herramientas comunes, para que los usuarios puedan enfocarse en crear juegos sin tener que reinventar la rueda. Los juegos pueden exportarse en un sólo clic a numerosas plataformas, incluyendo las principales plataformas de escritorio (Linux, macOS, Windows), plataformas móviles (Android, iOS), así como plataformas y consolas basadas en la web.</P>
+
+<P>Godot es completamente gratis y de código abierto bajo la permisiva licencia MIT (Licencia del Instituto Tecnológico de Massachusetts). Sin condiciones, sin regalías, nada. Los juegos de los usuarios son suyos, hasta la última línea de código del motor. El desarrollo de Godot es totalmente independiente y dirigido por la comunidad, lo que permite a los usuarios ayudar a dar forma a su motor para que coincida con sus expectativas. Está respaldado por la Godot Foundation (Fundación Godot) sin fines de lucro.</P>
+                
+                    <p><strong>VENTAJAS:</strong> 
+                        <LI>Gratis.</LI>
+                        <LI>Editor potente con una interfaz visual e intuitiva.</LI>
+                        <LI>Actualizado constantemente.</LI>
+                        <LI>Comunidad excelente.</LI>
+                        <LI>Permite exportar juegos a versiones de PC, celulares y web (HTML5).</LI>
+                    </p>
+
+                        
+                     <p><strong>DESVENTAJAS:</strong> 
+                        <LI>Físicas pobres al crear juegos en 2D.</LI>
+                        <LI>Terminología del programa algo confusa.</LI>
+                       
+                    </p>
+                   
+                </div>
+            </div>
+
+            <div class="animal-card">
+                <div class="animal-image">
+                    <img src="rpg.jpg" alt="RPG Maker">
+                </div>
+                <div class="animal-info">
+                    <h2>RPG Maker</h2>
+                    <span class="status">Lenguaje C++, Ruby, C++ y Javascript</span>
+                    <p>RPG Maker es uno de los programas clásicos más conocidos cuando se trata de crear juegos. Como indica su nombre, se enfoca en la creación de RPGs en 2D y posee herramientas y recursos innumerables para ese género. Se trata de un programa especializado en esa área, aunque, con un poco de creatividad, permite crear juegos de otros estilos.</p>
+                    <P>RPG Maker posee una interfaz muy intuitiva y no exige conocimientos de programación. Eso sí, permite que los usuarios más avanzados programen todo tipo de códigos. Como programa de creación de juegos, es indicado para PC, navegador web y Android.</P>
+                    <p><strong>VENTAJAS:</strong> 
+                        <LI>Interfaz muy intuitiva.</LI>
+                        <LI>Códigos simplificados, permitiendo a su vez una programación más avanzada.</LI>
+                        <LI>Comunidad inmensa y activa.</LI>
+                        <LI>Tiene versiones de prueba y un extenso contenido con recursos adicionales.</LI>
+                    </p>
+                     <p><strong>DESVENTAJAS:</strong> 
+                        <LI>Compatibilidad algo limitada para los juegos.</LI>
+                        <LI>No es muy indicado para los principiantes en creación de juegos.</LI>
+                        <LI>Limitación en géneros de juego.</LI>
+                        <LI>Programa caro a menos que sepas crear tus propios recursos.</LI>
+                    </p>
+                </div>
+            </div>
+
+            <div class="animal-card">
+                <div class="animal-image">
+                    <img src="unity.png" alt="Unity">
+                </div>
+                <div class="animal-info">
+                    <h2>Unity</h2>
+                    <span class="status">C#</span>
+                    <p>Unity es uno de los programas para hacer videojuegos más famosos y accesibles para los desarrolladores. Es utilizado tanto por empresas como por personas que crean juegos por hobby. Unity es una plataforma completa para desarrollar videojuegos con un editor visual e intuitivo.</p>
+                    <p>Unity es un motor gráfico que soporta gráficos 2D y 3D. Proporciona un ecosistema completo con muchos recursos, tutoriales y una tienda en línea donde encontrar complementos, recursos visuales, efectos sonoros y mucho más.</p>
+                    <p><strong>VENTAJAS:</strong> 
+                        <LI>Plataforma multiplataforma: permite exportar a diferentes plataformas.</LI>
+                        <LI>Editor potente con muchas herramientas de trabajo.</LI>
+                        <LI>Recursos abundantes y enorme comunidad.</LI>
+                        <LI>Versión gratuita muy completa.</LI>
+                        <LI>Assets Store con miles de recursos.</LI>
+                    </p>
+                    <p><strong>DESVENTAJAS:</strong> 
+                        <LI>Requiere conocimientos en C#.</LI>
+                        <LI>Los gráficos de alta calidad requieren conocimientos avanzados.</LI>
+                        <LI>Cambios en su modelo de licencias y costos.</LI>
+                    </p>
+                </div>
+            </div>
+
+            <div class="animal-card">
+                <div class="animal-image">
+                    <img src="unreal.jpg" alt="Unreal Engine">
+                </div>
+                <div class="animal-info">
+                    <h2>Unreal Engine</h2>
+                    <span class="status">C++ y Blueprints (programación visual)</span>
+                    <p>Unreal Engine es un motor gráfico de alta calidad y potencia creado por Epic Games. Está fuertemente orientado a la creación de videojuegos con gráficos 3D fotorrealistas. Su sistema de programación visual llamado Blueprints permite crear juegos sin escribir código tradicional.</p>
+                    <p>Este motor gráfico es ampliamente utilizado por estudios profesionales para crear juegos AAA, aunque su versión pública está disponible para cualquier desarrollador. También se utiliza en la industria del cine y la televisión para crear efectos visuales.</p>
+                    <p><strong>VENTAJAS:</strong> 
+                        <LI>Gráficos de alta calidad y fotorrealistas.</LI>
+                        <LI>Sistema Blueprints para programación visual.</LI>
+                        <LI>Editor potente con muchas opciones avanzadas.</LI>
+                        <LI>Comunidad grande y soporte directo.</LI>
+                        <LI>Completamente gratuito hasta que el juego genera ingresos.</LI>
+                    </p>
+                    <p><strong>DESVENTAJAS:</strong> 
+                        <LI>Curva de aprendizaje pronunciada.</LI>
+                        <LI>Requisitos de hardware elevados.</LI>
+                        <LI>Poco optimizado para juegos 2D.</LI>
+                        <LI>Complejidad general del motor.</LI>
+                    </p>
+                </div>
+            </div>
+
+            <div class="animal-card">
+                <div class="animal-image">
+                    <img src="studio.jpg" alt="GameMaker Studio">
+                </div>
+                <div class="animal-info">
+                    <h2>GameMaker Studio</h2>
+                    <span class="status">GML (GameMaker Language) y programación visual</span>
+                    <p>GameMaker Studio es una plataforma de desarrollo específicamente diseñada para crear juegos 2D. Está orientada tanto a principiantes como a profesionales, con un sistema de programación visual y su propio lenguaje llamado GML.</p>
+                    <p>Este software está optimizado para que la creación de prototipos y juegos completos sea rápida y eficiente. Ha sido utilizado para crear éxitos comerciales como Hotline Miami, Undertale y muchos otros.</p>
+                    <p><strong>VENTAJAS:</strong> 
+                        <LI>Excelente para juegos 2D.</LI>
+                        <LI>Interfaz intuitiva y fácil de usar.</LI>
+                        <LI>Sistema DnD (Drag and Drop) para aprender sin programar.</LI>
+                        <LI>Exportación a múltiples plataformas.</LI>
+                        <LI>Comunidad activa y muchos tutoriales disponibles.</LI>
+                    </p>
+                    <p><strong>DESVENTAJAS:</strong> 
+                        <LI>Limitado para juegos 3D.</LI>
+                        <LI>Licencias de pago para funcionalidades avanzadas.</LI>
+                        <LI>GML es un lenguaje específico que no se usa fuera de GameMaker.</LI>
+                        <LI>Menos flexible que motores completos como Unity.</LI>
+                    </p>
+                </div>
+            </div>
+
+            <div class="animal-card">
+                <div class="animal-image">
+                    <img src="construct.png" alt="Construct">
+                </div>
+                <div class="animal-info">
+                    <h2>Construct</h2>
+                    <span class="status">Sin programación (visual) y JavaScript</span>
+                    <p>Construct es un motor para crear juegos 2D sin necesidad de programar. Utiliza un sistema de eventos y condiciones que resulta muy intuitivo para principiantes y creadores sin experiencia técnica previa.</p>
+                    <p>Esta herramienta se ejecuta en el navegador y permite crear juegos HTML5 que funcionan en múltiples plataformas. Es ideal para prototipar ideas rápidamente y crear juegos sencillos.</p>
+                    <p><strong>VENTAJAS:</strong> 
+                        <LI>No requiere conocimientos de programación.</LI>
+                        <LI>Ideal para principiantes absolutos.</LI>
+                        <LI>Interfaz muy intuitiva basada en eventos.</LI>
+                        <LI>Exporta principalmente a HTML5 y plataformas móviles.</LI>
+                        <LI>Editor basado en navegador, accesible desde cualquier lugar.</LI>
+                    </p>
+                    <p><strong>DESVENTAJAS:</strong> 
+                        <LI>Limitado a juegos 2D.</LI>
+                        <LI>Versión gratuita con funciones limitadas.</LI>
+                        <LI>Menor rendimiento que otros motores.</LI>
+                        <LI>Menos flexible para proyectos complejos.</LI>
+                    </p>
+                </div>
+            </div>
+
+            <div class="animal-card">
+                <div class="animal-image">
+                    <img src="box.png" alt="Buildbox">
+                </div>
+                <div class="animal-info">
+                    <h2>Buildbox</h2>
+                    <span class="status">Sin programación</span>
+                    <p>Buildbox es una herramienta para crear juegos sin código destinada principalmente a dispositivos móviles. Su filosofía es permitir que cualquier persona, independientemente de su conocimiento técnico, pueda crear juegos atractivos arrastrando y soltando elementos.</p>
+                    <p>Esta plataforma es conocida por su rapidez al crear prototipos y por haber sido utilizada para desarrollar algunos juegos exitosos en tiendas móviles. Es ideal para crear juegos arcade o de estilo casual.</p>
+                    <p><strong>VENTAJAS:</strong> 
+                        <LI>No requiere ningún tipo de programación.</LI>
+                        <LI>Interfaz de arrastrar y soltar.</LI>
+                        <LI>Ideal para juegos móviles.</LI>
+                        <LI>Creación rápida de prototipos.</LI>
+                        <LI>Buenos resultados visuales sin mucho esfuerzo.</LI>
+                    </p>
+                    <p><strong>DESVENTAJAS:</strong> 
+                        <LI>Opciones limitadas de personalización.</LI>
+                        <LI>Precio elevado comparado con otras opciones.</LI>
+                        <LI>Más restrictivo en tipos de juego.</LI>
+                        <LI>Menos flexible para ideas originales.</LI>
+                    </p>
+                </div>
+            </div>
+
+             <div class="animal-card">
+                <div class="animal-image">
+                    <img src="cyl.jpg" alt="RPG Maker">
+                </div>
+                <div class="animal-info">
+                    <h2>Stencyl</h2>
+                    <span class="status">Visual por bloques (basado en Scratch), Haxe (lenguaje similar a JavaScript/C++):</span>
+                    <p>Stencyl es un término medio entre Scratch y Construct 3. El programa también presenta un aspecto educativo centrado en enseñar lo básico de programación, mas permite una variedad mucho mayor de juegos y herramientas que Scratch.</p>
+                    <P>Stencyl es perfecto para juegos Flash. De hecho, bastante de los juegos creados en Stencyl se encuentran en páginas como ArmorGames, Kongregate y Newgrounds. Es un programa muy bueno para crear juegos de plataformas, defensa de torres, arcade y RPGs en 2D.</P>
+                    
+                    <p><strong>VENTAJAS:</strong> 
+                        <LI>Buena compatibilidad con Flash, Windows, Mac, Linux, iOS, Android y HTML5.</LI>
+                        <LI>Enseña conceptos básicos de programación.</LI>
+                        <LI>Es posible obtener patrocinadores para los juegos.</LI>
+                        <LI>Versión gratuita de uso personal y que te permite crear juegos Flash.</LI>
+                    </p>
+                     <p><strong>DESVENTAJAS:</strong> 
+                        <LI>Necesitas pagar suscripción anual para aprovechar todas las funcionalidades y eliminar la marca de agua.</LI>
+                        <LI>No posee tantas herramientas.</LI>
+                        <LI>Aunque compatible, no es ideal para crear juegos para celulares.</LI>
+                        
+                    </p>
+                </div>
+            </div>
+
+             <div class="animal-card">
+                <div class="animal-image">
+                    <img src="roblox.png" alt="RPG Maker">
+                </div>
+                <div class="animal-info">
+                    <h2>Roblox Studio</h2>
+                    <span class="status">Lua</span>
+                    <p>Roblox Studio, como ya imaginarás, es el programa utilizado para crear juegos en Roblox. Ofrece todas las herramientas necesarias para crear juegos en 3D con una rapidez y sencillez sorprendentes. Cuenta con distintas funcionalidades y modelos listos para arrastrar y colocar a tu voluntad.</p>
+                    <P>Los juegos creados en Roblox Studio siguen las mismas mecánicas clásicas de Roblox. Aun así, tú tienes el control completo en la creación de escenario y reglas de juego.</P>
+                    <p><strong>VENTAJAS:</strong> 
+                        <LI>Gratis.</LI>
+                        <LI>Creación de juegos fácil y totalmente en 3D.</LI>
+                        <LI>Muchísimo contenido y una comunidad potente, siempre activa.</LI>
+                       
+                    </p>
+                     <p><strong>DESVENTAJAS:</strong> 
+                        <LI>Compatibilidad muy baja, pues los juegos solo funcionan en Roblox.</LI>
+                        <LI>El programa solo corre en Windows y Mac.</LI>
+                       
+                    </p>
+                </div>
+            </div>
+
+             <div class="animal-card">
+                <div class="animal-image">
+                    <img src="deve.jpg" alt="RPG Maker">
+                </div>
+                <div class="animal-info">
+                    <h2>GDevelop</h2>
+                    <span class="status">Programación por eventos visuales (sin escribir código), Internamente usa JavaScript</span>
+                    <p>GDevelop es uno de los programas de creación de juegos que mayores compatibilidades posee para diferentes plataformas. Queremos remarcar su potente sistema de eventos, el cual te permite determinar muchos aspectos del juego con suma sencillez y sin necesidad de pelear con códigos.</p>
+                    <P>Es totalmente gratis y, aunque tiene menor documentación y actividad respecto a otros programas, GDevelop es un buen software si deseas crear un juego simple en 2D.</P>
+                    <p><strong>VENTAJAS:</strong> 
+                        <LI>Gratis</LI>
+                        <LI>Es de código abierto, lo que permite una personalización alta.</LI>
+                        <LI>Sistema potente de eventos.</LI>
+                        <LI>Juegos compatibles con múltiples plataformas de PC, móviles y páginas webs.</LI>
+                    </p>
+                     <p><strong>DESVENTAJAS:</strong> 
+                        <LI>Lento</LI>
+                        <LI>Comunidad no muy activa y documentación insuficiente.</LI>
+                        
+                        
+                    </p>
+                </div>
+            </div>
+
+          
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 Plataformas para Creación de Videojuegos | Todos los derechos reservados</p>
+        <p>Esta página fue creada con el propósito de educar sobre diferentes herramientas para crear videojuegos</p>
+    </footer>
+
+    <a href="../temas menu.html" class="back-button">Volver al Inicio</a>
+</body>
+</html>

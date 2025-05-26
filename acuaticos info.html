@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animales Acuáticos en Peligro de Extinción</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e6f7ff;
+            color: #003366;
+            line-height: 1.6;
+        }
+        header {
+            background-color: #005580;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            background-image: linear-gradient(to right, #005580, #0099cc);
+        }
+       
+        .animal-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            overflow: hidden;
+            display: flex;
+            text-align: left;
+        }
+        .animal-info {
+            padding: 20px;
+            flex: 1;
+        }
+        .animal-image {
+            width: 300px;
+            height: 250px;
+            background-color: #cce6ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .animal-image img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: cover;
+        }
+        h2 {
+            color: #0066cc;
+            margin-top: 0;
+            border-bottom: 2px solid #0066cc;
+            padding-bottom: 10px;
+        }
+        .titulo-principal {
+            font-size: 50px; 
+            text-align: center; 
+        }
+        .status {
+            display: inline-block;
+            background-color: #ff3333;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        footer {
+            background-color: #005580;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 20px;
+        }
+        .grid {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+         .category-card:hover {
+            transform: translateY(-5px);}
+        .conservacion-info {
+            background-color: #f0f8ff;
+            border-left: 5px solid #0066cc;
+            padding: 20px;
+        }
+        .conservacion-info h2 {
+            border-bottom: none;
+        }
+        .conservacion-info ul {
+            padding-left: 20px;
+        }
+        
+        /* New styles for Back to Top button */
+        #back-to-top {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background-color: #0066cc;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 24px;
+            cursor: pointer;
+            display: none;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: opacity 0.3s;
+        }
+        #back-to-top:hover {
+            background-color: #005580;
+        }
+        
+        
+        
+
+        .back-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #005580;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 14px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease;
+            z-index: 1000;
+        }
+
+        .back-button:hover {
+            background-color: #0099cc;
+        }
+
+        .animals-button {
+            position: fixed;
+            bottom: 80px;
+            left: 20px;
+            background-color: #2e6b30;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 14px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease;
+            z-index: 1000;
+        }
+
+        .animals-button:hover {
+            background-color: #1d4a1f;
+        }
+        
+        @media (max-width: 768px) {
+            .animal-card {
+                flex-direction: column;
+            }
+            .animal-image {
+                width: 100%;
+                height: 200px;
+            }
+            #back-to-top {
+                width: 40px;
+                height: 40px;
+                font-size: 20px;
+            }
+        }
+        .btn {
+            display: inline-block;
+            background-color: #2e6b30;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 5px;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #1d4a1f;
+        }
+        a{
+  border-radius: 5px;
+  padding: 10px 7px;
+  text-decoration: none;
+  color: #fff;
+  background-color: #333;
+  margin: 5px;
+}
+.view-counter {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background-color: #005580;
+        color: white;
+        padding: 10px 15px;
+        border-radius: 5px;
+        font-size: 14px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+    }
+    </style>
+</head>
+<body>
+    <button id="back-to-top" onclick="scrollToTop()" title="Ir arriba">↑</button>
+
+    <header>
+        
+        <h1 class="titulo-principal">ANIMALES ACUÁTICOS</h1>
+        <p>Especies marinas y de agua dulce que necesitan nuestra protección urgente</p>
+    </header>
+
+    <div class="container">
+        <div class="grid">
+            <div class="animal-card">
+                <div class="animal-image">
+                    <img src="vaquita.jpg" alt="Vaquita Marina">
+                </div>
+                <div class="animal-info">
+                    <h2>Vaquita Marina</h2>
+                    <span class="status">En peligro crítico</span>
+                    <p><strong>Nombre científico:</strong> Phocoena sinus</p>
+                    <p><strong>Hábitat:</strong> Golfo de California, México</p>
+                    <p>La vaquita marina es el cetáceo más pequeño y en mayor peligro del mundo. Quedan menos de 10 ejemplares en la naturaleza. Su principal amenaza es la pesca ilegal de totoaba, un pez cuya vejiga natatoria es altamente cotizada en el mercado negro.</p>
+                    <p><strong>Datos adicionales:</strong> Es endémica de México y su población ha disminuido más del 90% en las últimas décadas debido a la captura incidental en redes de pesca.</p>
+                
+                </div>
+            </div>
+
+            <div class="animal-card">
+                <div class="animal-image">
+                    <img src="ballena.jpg" alt="Tiburón Ballena">
+                </div>
+                <div class="animal-info">
+                    <h2>Tiburón Ballena</h2>
+                    <span class="status">En peligro</span>
+                    <p><strong>Nombre científico:</strong> Rhincodon typus</p>
+                    <p><strong>Hábitat:</strong> Océanos tropicales y templados</p>
+                    <p>El tiburón ballena es el pez más grande del mundo, pudiendo alcanzar hasta 12 metros de longitud. Su población ha disminuido más del 50% en las últimas décadas debido a la pesca y las colisiones con embarcaciones.</p>
+                    <p><strong>Curiosidad:</strong> A pesar de su tamaño, se alimenta principalmente de plancton mediante filtración, siendo completamente inofensivo para los humanos.</p>
+                </div>
+            </div>
+
+            <div class="animal-card">
+                <div class="animal-image">
+                    <img src="laud.jpg" alt="Tortuga Laúd">
+                </div>
+                <div class="animal-info">
+                    <h2>Tortuga Laúd</h2>
+                    <span class="status">En peligro crítico</span>
+                    <p><strong>Nombre científico:</strong> Dermochelys coriacea</p>
+                    <p><strong>Hábitat:</strong> Océanos tropicales y subtropicales</p>
+                    <p>La tortuga laúd es la más grande de todas las tortugas marinas, con un caparazón que puede medir hasta 2 metros. Está amenazada por la captura accidental en redes de pesca, la contaminación y la pérdida de playas de anidación.</p>
+                    <p><strong>Datos importantes:</strong> Puede sumergirse hasta 1,280 metros de profundidad y regular su temperatura corporal, algo único entre los reptiles.</p>
+                </div>
+            </div>
+
+            <div class="animal-card">
+                <div class="animal-image">
+                    <img src="sierra.jpg" alt="Pez Sierra">
+                </div>
+                <div class="animal-info">
+                    <h2>Pez Sierra</h2>
+                    <span class="status">En peligro crítico</span>
+                    <p><strong>Nombre científico:</strong> Pristis pristis</p>
+                    <p><strong>Hábitat:</strong> Estuarios costeros y ríos tropicales</p>
+                    <p>El pez sierra es reconocible por su largo hocico dentado en forma de sierra. Su población ha disminuido drásticamente debido a la pesca excesiva y la degradación del hábitat.</p>
+                    <p><strong>Impacto ecológico:</strong> Como depredador en la cadena alimenticia, su desaparición puede causar desequilibrios significativos en los ecosistemas marinos y de agua dulce.</p>
+                </div>
+            </div>
+
+            <div class="animal-card">
+                <div class="animal-image">
+                    <img src="delfin del rio.jpg" alt="Delfín del Río Yangtsé">
+                </div>
+                <div class="animal-info">
+                    <h2>Delfín del Río Yangtsé</h2>
+                    <span class="status">Posiblemente extinto</span>
+                    <p><strong>Nombre científico:</strong> Lipotes vexillifer</p>
+                    <p><strong>Hábitat:</strong> Río Yangtsé, China</p>
+                    <p>Conocido como "baiji", este delfín de agua dulce podría ya estar extinto. Los últimos avistamientos confirmados fueron en 2002. Su desaparición se debe a la contaminación, la pesca excesiva y el desarrollo urbano.</p>
+                    <p><strong>Significado cultural:</strong> En la mitología china, era considerado un símbolo de buena suerte y protección.</p>
+                </div>
+            </div>
+
+            <div class="animal-card">
+                <div class="animal-image">
+                    <img src="manati.jpg" alt="Manatí del Caribe">
+                </div>
+                <div class="animal-info">
+                    <h2>Manatí del Caribe</h2>
+                    <span class="status">En peligro</span>
+                    <p><strong>Nombre científico:</strong> Trichechus manatus</p>
+                    <p><strong>Hábitat:</strong> Costas del Caribe y América Central</p>
+                    <p>El manatí es un mamífero acuático herbívoro, conocido popularmente como "vaca marina". Su población está amenazada por colisiones con embarcaciones, la caza furtiva y la pérdida de hábitat.</p>
+                    <p><strong>Curiosidad:</strong> Pueden consumir hasta el 10% de su peso corporal en vegetación acuática diariamente, siendo fundamentales para el mantenimiento de los ecosistemas de pastos marinos.</p>
+                </div>
+            </div>
+
+            <div class="animal-card conservacion-info">
+                <div class="animal-info">
+                    <h2>¿Cómo podemos ayudar a proteger estas especies?</h2>
+                    <ul>
+                        <li><strong>Apoyo a organizaciones conservacionistas:</strong> Colaborar con grupos dedicados a la protección de especies marinas y estudios científicos.</li>
+                        <li><strong>Reducción del plástico:</strong> Minimizar el consumo de plásticos de un solo uso que terminan en los océanos y ríos.</li>
+                        <li><strong>Consumo responsable:</strong> Elegir pescado de fuentes sostenibles y certificadas.</li>
+                        <li><strong>Participación ambiental:</strong> Unirse a limpiezas de playas, ríos y actividades de conservación.</li>
+                        <li><strong>Educación y difusión:</strong> Compartir información sobre estas especies para crear conciencia.</li>
+                        <li><strong>Turismo responsable:</strong> Apoyar iniciativas de ecoturismo que respeten los hábitats naturales.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 Conservación de Especies Acuáticas | Todos los derechos reservados</p>
+        <p>Esta página fue creada con el propósito de educar sobre especies acuáticas amenazadas y promover su conservación</p>
+    </footer>
+
+    <script>
+        // Show/hide back to top button based on scroll position
+        window.addEventListener('scroll', function() {
+            const backToTopButton = document.getElementById('back-to-top');
+            if (window.pageYOffset > 300) {
+                backToTopButton.style.display = 'block';
+            } else {
+                backToTopButton.style.display = 'none';
+            }
+        });
+
+        // Smooth scroll to top function
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Contador de vistas
+    document.addEventListener('DOMContentLoaded', function () {
+        const viewCounterElement = document.getElementById('view-counter');
+        let views = localStorage.getItem('pageViews') || 0;
+        views = parseInt(views) + 1;
+        localStorage.setItem('pageViews', views);
+        viewCounterElement.textContent = `Visitas: ${views}`;
+    });
+    </script>
+            <footer>
+            <!-- ...existing code... -->
+        </footer>
+    
+    <!-- Reemplaza el botón existente con este -->
+    <a href="../../animales.html" class="back-button">Volver al Menú</a>
+    
+    </body>
+</body>
+</html>
